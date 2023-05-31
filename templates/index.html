@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+ {% block head %} 
+To-Do List
+{% endblock %} 
+{% block body %}
+<div class="content"> 
+  <h1 style="text-align: center;">Task Master</h1>
+      <!-- {% if tasks| length < 1 %}
+  <h2 style="text-align: center;">No Tasks. Get Busy!</h2>
+      {% else %} -->
+<table>
+    <tr>
+      <th>Task</th>
+      <th>Date Added</th>
+      <th>Due Date</th>
+      <th>Priority</th>
+      <th></th>
+    </tr>
+    {% for task in tasks %} 
+    <tr>
+      <td>{{ task.content }}</td>
+      <td> {{task.date_created.date()}}</td>
+      <td> {{task.due_date.date()}}</td>
+      <td>{{ task.priority }}</td>
+      <td>
+        <a href="/delete/{{task.id}}">Delete</a>
+        <br> 
+        <a href="/update/{{task.id}}">Update </a> -->
+      </td>
+    </tr> 
+    {% endfor %}
+  </table>
+    <!-- {% endif %} -->
+    </div>
+<div class="form">
+  <form action = "/" method = "POST">
+    <input type = "text" name = "content" id = "content" placeholder = "Task" />
+    <input type = "date" name = "due_date" id = "due_date" placeholder = "Due Date" /> 
+<!-- create a drop down menu input with high medium low for priority -->
+   <select name="priority" id="priority" placeholder = "Priority">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+  </select>
+    <input type = "submit" name = "submit" value = "Add" /> -->
+</div>
+{% endblock %} 
